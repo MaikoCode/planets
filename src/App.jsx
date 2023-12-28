@@ -18,7 +18,7 @@ function App() {
     <div className="min-h-screen min-w-full bg-black-space bg-stars ">
         {/* <PageStructure /> */}
         <Navbar />
-        <div className="text-white">
+        <div className="text-white px-4 pt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptas nam ea sapiente deserunt maxime cum assumenda beatae optio, amet hic eaque perspiciatis harum voluptatibus vel porro nobis officiis aut?
           Officiis voluptas corrupti aliquid eaque ad facilis rem doloribus repellat eum numquam, eveniet dolorum nisi fugiat deleniti, rerum quasi nemo asperiores sequi laborum est accusantium molestiae! Ipsa in et distinctio.
           Amet explicabo eius consequatur earum expedita alias architecto optio vero sit repellendus quae ratione voluptatem, voluptatibus asperiores ipsa, quisquam corporis. Accusantium veritatis sint quibusdam sunt qui sed sapiente quam voluptatum!

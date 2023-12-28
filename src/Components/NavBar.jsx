@@ -144,17 +144,18 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   
-  const navbarHeight = '3rem';
+  const navbarHeight = '4rem';
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 text-white font-antonio bg-black-space">
-      <div className="max-w-6xl mx-auto px-4 flex justify-between">
-        <div className="flex items-center py-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 text-white border-b border-white font-antonio bg-black-space">
+      <div className="max-w-6xl mx-auto px-4 flex justify-between md:flex-col xl:flex-row">
+        <div className="flex items-center py-4 md:justify-center xl:justify-normal">
           <a href="#" className="font-bold text-xl tracking-widest uppercase">The Planets</a>
         </div>
-        <div className="hidden md:flex items-center space-x-1 uppercase text-gray text-base tracking-wide">
-          {/* ... liens de navigation ... */}
-          <a href="#" className="py-4 px-2">mercury</a>
+        <div className="hidden md:flex items-center space-x-1 uppercase text-white opacity-80 text-base tracking-wide
+        md:justify-center xl:justify-normal desktop-link">
+         
+               <a href="#" className="py-4 px-2">mercury</a>
                <a href="#" className="py-4 px-2">venus</a>
                <a href="#" className="py-4 px-2">earth</a>
                <a href="#" className="py-4 px-2">mars</a>
@@ -169,12 +170,12 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      {/* Menu mobile */}
+      {/* Mobile menu */}
       <div 
-        className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} fixed top-[${navbarHeight}] left-0 right-0 bottom-0 z-40 bg-black-space font-spartan`}
+        className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} fixed top-[${navbarHeight}] left-0 right-0 bottom-0 z-40 bg-black-space font-spartan
+        pt-4`}
         style={{ top: navbarHeight }}
       >
-        {/* ... contenu du menu mobile ... */}
         <ul>
                  <li className='flex justify-between items-center border-b border-white px-4'>
                      <div className='flex items-center py-4'>

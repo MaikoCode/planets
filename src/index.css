@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    
+    .desktop-link a {
+        position: relative;
+    }
+  
+    /* Add styles for the upperlink effect */
+     .desktop-link a::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        top: -2px;
+        left: -1px;
+        background-color: theme('colors.mercury'); /* Set your desired upperlink color */
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease-out;
+    }
+  
+  /* Add hover effect to the navigation links */
+  .desktop-link a:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* Remove the upperlink effect on mobile */
+    @media (max-width: 767px) {
+        .desktop-link::before {
+        display: none;
+        }
+    }
+    
+  
+}
