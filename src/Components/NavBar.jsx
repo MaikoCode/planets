@@ -2,6 +2,8 @@ import { useState } from 'react';
 import HamburgerIcon from "../assets/icon-hamburger.svg";
 import HamburgerIconDeactivated from "../assets/icon-hamburger-deactivate.svg";
 import ArrowIcon from "../assets/icon-chevron.svg";
+import { Link } from "react-router-dom"
+import PlanetJson from "../../data.json"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,15 +19,12 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex items-center space-x-1 uppercase text-white opacity-80 text-base tracking-wide
         md:justify-center xl:justify-normal desktop-link">
-         
-               <a href="#" className="py-4 px-2">mercury</a>
-               <a href="#" className="py-4 px-2">venus</a>
-               <a href="#" className="py-4 px-2">earth</a>
-               <a href="#" className="py-4 px-2">mars</a>
-               <a href="#" className="py-4 px-2">jupiter</a>
-               <a href="#" className="py-4 px-2">saturn</a>
-               <a href="#" className="py-4 px-2">uranus</a>
-               <a href="#" className="py-4 px-2">neptune</a>
+                        {PlanetJson.map((planet) => (
+                            <span key={planet.name}>
+                                <Link to={`/planet/${planet.name}`} 
+                                className="py-4 px-2 list-none">{planet.name}</Link>
+                            </span>
+                        ))}
         </div>
         <div className="md:hidden flex items-center">
           <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -39,6 +38,8 @@ const Navbar = () => {
         pt-4`}
         style={{ top: navbarHeight }}
       >
+
+      {/* Link */}
         <ul>
                  <li className='flex justify-between items-center border-b border-white px-4'>
                      <div className='flex items-center py-4'>
