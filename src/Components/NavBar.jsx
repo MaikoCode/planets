@@ -41,16 +41,19 @@ const Navbar = () => {
 
       {/* Link */}
         <ul>
-                 <li className='flex justify-between items-center border-b border-white px-4'>
-                     <div className='flex items-center py-4'>
-                         <span className='w-4 h-4 rounded-full bg-mercury block mr-4'></span>
-                         <span className='uppercase tracking-widest text-xs mt-0.5 font-bold'>mercury</span>
-                     </div>
-                     <div>
-                         <img src={ArrowIcon} alt="icon" />
-                     </div>
-                 </li>
-               
+                <Link to={`/planet/Mercury`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    <li className='flex justify-between items-center border-b border-white px-4'>
+                        <div className='flex items-center py-4'>
+                            <span className='w-4 h-4 rounded-full bg-mercury block mr-4'></span>
+                            <span className='uppercase tracking-widest text-xs mt-0.5 font-bold'>mercury</span>
+                        </div>
+                        <div>
+                            <img src={ArrowIcon} alt="icon" />
+                        </div>
+                    </li>
+                </Link>
+
+                <Link to={`/planet/Venus`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
                  <li className='flex justify-between items-center border-b border-white px-4'>
                      <div className='flex items-center py-4'>
                          <span className='w-4 h-4 rounded-full bg-venus block mr-4'></span>
@@ -60,6 +63,9 @@ const Navbar = () => {
                          <img src={ArrowIcon} alt="icon" />
                      </div>
                  </li>
+                </Link>
+               
+                <Link to={`/planet/Earth`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
                  <li className='flex justify-between items-center border-b border-white px-4'>
                      <div className='flex items-center py-4'>
                          <span className='w-4 h-4 rounded-full bg-earth block mr-4'></span>
@@ -69,6 +75,8 @@ const Navbar = () => {
                          <img src={ArrowIcon} alt="icon" />
                      </div>
                  </li>
+                </Link>
+                <Link to={`/planet/Mars`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
                  <li className='flex justify-between items-center border-b border-white px-4'>
                      <div className='flex items-center py-4'>
                          <span className='w-4 h-4 rounded-full bg-mars block mr-4'></span>
@@ -78,15 +86,9 @@ const Navbar = () => {
                          <img src={ArrowIcon} alt="icon" />
                      </div>
                  </li>
-                 <li className='flex justify-between items-center border-b border-white px-4'>
-                     <div className='flex items-center py-4'>
-                         <span className='w-4 h-4 rounded-full bg-mercury block mr-4'></span>
-                         <span className='uppercase tracking-widest text-xs mt-0.5 font-bold'>mercury</span>
-                     </div>
-                     <div>
-                         <img src={ArrowIcon} alt="icon" />
-                     </div>
-                 </li>
+                </Link>
+                
+                <Link to={`/planet/Jupiter`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
                  <li className='flex justify-between items-center border-b border-white px-4'>
                      <div className='flex items-center py-4'>
                          <span className='w-4 h-4 rounded-full bg-jupiter block mr-4'></span>
@@ -96,6 +98,8 @@ const Navbar = () => {
                          <img src={ArrowIcon} alt="icon" />
                      </div>
                  </li>
+                </Link>
+                <Link to={`/planet/Saturn`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
                  <li className='flex justify-between items-center border-b border-white px-4'>
                      <div className='flex items-center py-4'>
                          <span className='w-4 h-4 rounded-full bg-saturn block mr-4'></span>
@@ -105,6 +109,8 @@ const Navbar = () => {
                          <img src={ArrowIcon} alt="icon" />
                      </div>
                  </li>
+                </Link>
+                <Link to={`/planet/Uranus`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
                  <li className='flex justify-between items-center border-b border-white px-4'>
                      <div className='flex items-center py-4'>
                          <span className='w-4 h-4 rounded-full bg-uranus block mr-4'></span>
@@ -113,15 +119,19 @@ const Navbar = () => {
                      <div>
                          <img src={ArrowIcon} alt="icon" />
                      </div>
-                 </li>                 <li className='flex justify-between items-center border-b border-white px-4'>
-                     <div className='flex items-center py-4'>
-                         <span className='w-4 h-4 rounded-full bg-neptune block mr-4'></span>
-                         <span className='uppercase tracking-widest text-xs mt-0.5 font-bold'>neptune</span>
-                     </div>
-                     <div>
-                         <img src={ArrowIcon} alt="icon" />
-                     </div>
-                 </li>
+                 </li>           
+                </Link>
+                <Link to={`/planet/Neptune`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    <li className='flex justify-between items-center border-b border-white px-4'>
+                        <div className='flex items-center py-4'>
+                            <span className='w-4 h-4 rounded-full bg-neptune block mr-4'></span>
+                            <span className='uppercase tracking-widest text-xs mt-0.5 font-bold'>neptune</span>
+                        </div>
+                        <div>
+                            <img src={ArrowIcon} alt="icon" />
+                        </div>
+                    </li>
+                </Link>
                </ul>
       </div>
     </nav>
