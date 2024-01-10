@@ -1,13 +1,36 @@
 import planetJson from "../../data.json";
 import iconSource from "../assets/icon-source.svg"
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 
 export default function PlanetDetails() {
 
+  const [activeButton, setActiveButton] = useState('overview');
+
+  const planetColors = {
+    "mercury": "bg-mercury border-mercury hover:bg-mercury",
+    "venus": "bg-venus border-venus hover:bg-venus",
+    "earth": "bg-earth border-earth hover:bg-earth",
+    "mars": "bg-mars border-mars hover:bg-mars",
+    "jupiter": "bg-jupiter border-jupiter hover:bg-jupiter",
+    "saturn": "bg-saturn border-saturn hover:bg-saturn",
+    "uranus": "bg-uranus border-uranus hover:bg-uranus",
+    "neptune": "bg-neptune border-neptune hover:bg-neptune"
+  };
+
+  
+
   const { name } = useParams();
  
   const Theplanet = planetJson.find((p) => p.name === name);
+
+  const activePlanet = Theplanet.name.toLowerCase();
+  const activeColor = planetColors[activePlanet] || "#ffffff";
+
+  const handleButtonClick = (button) => {
+    setActiveButton(button)
+  }
 
   if(!Theplanet){
     return <div>Planet not found</div>;
@@ -17,16 +40,57 @@ export default function PlanetDetails() {
     <div className="mt-10">
         <div className="lg:px-12">
             <section className="mobile-explorer flex items-center justify-between border-b border-white">
-                <button className="text-white">overview</button>
-                <button>structure</button>
-                <button>surface</button>
+               
+                <button 
+                className={`${activeButton === 'overview' ? `before:bg-${activePlanet}` : ''}`}
+                onClick={() => handleButtonClick('overview')}
+                >overview</button>
+
+                <button
+                className={`${activeButton === 'structure' ? `before:bg-${activePlanet}` : ''}`}
+                onClick={() => handleButtonClick('structure')}
+                >structure</button>
+
+                <button
+                className={`${activeButton === 'surface' ? `before:bg-${activePlanet}` : ''}`}
+                onClick={() => handleButtonClick('surface')}
+                >surface</button>
             </section>
 
             <section className="flex flex-col py-4 md:mt-[20vh] lg:mt-[10vh] lg:flex-row">
                 <div className="flex flex-col items-center lg:justify-center mb-8 lg:w-[45%] lg:mr-[5%]">
-                    <img src={"." + Theplanet.images.planet}
-                     className="w-[112px] h-[112px] lg:w-72 lg:h-72"
-                     alt="image" />
+                     {activeButton === 'overview' && (
+                        <img
+                            src={"."+Theplanet.images.planet}
+                            className="w-[112px] h-[112px] lg:w-72 lg:h-72"
+                            alt="image"
+                        />
+                        )}
+                        {activeButton === 'structure' && (
+                        <img
+                            src={"."+Theplanet.images.internal}
+                            className="w-[112px] h-[112px] lg:w-72 lg:h-72"
+                            alt="image"
+                        />
+                        )}
+                        {activeButton === 'surface' && (
+                        <div>
+                            <img
+                                src={"."+Theplanet.images.planet}
+                                className="w-[112px] h-[112px] lg:w-72 lg:h-72"
+                                alt="image"
+                            />
+                            <img
+                                src={"."+Theplanet.images.geology}
+                                className="w-[66px] h-[66px] lg:w-36 lg:h-36 -translate-y-4 translate-x-6 lg:translate-x-16"
+                                alt="image"
+                            />
+                        </div>
+                        )}
+
+
+
+
                 </div>
 
                 <div className="flex flex-col px-4 md:flex-row md:mt-[10vh] lg:flex-col lg:justify-between lg:w-[45%] lg:ml-[5%]
@@ -48,18 +112,26 @@ export default function PlanetDetails() {
                     </aside>
                     <aside className="desktop-explorer font-antonio flex flex-col md:w-[45%] md:ml-[5%] md:pt-12
                     lg:w-full lg:ml-auto lg:h-[45%]">
-                        <button className="border font-spartan p-3 flex items-center mb-2">
-                            <span className="uppercase text-gray text-sm pr-4">01</span>
+                       
+                        <button 
+                        className={`border font-spartan p-3 flex items-center mb-2 hover:hover-button ${activeButton === 'overview' ? `${activeColor}` : ''}`}
+                        onClick={() => handleButtonClick('overview')}>
+                            <span className="uppercase text-gray text-base pr-4 font-bold">01</span>
                             <span className="uppercase">overview</span> 
                         </button>
 
-                        <button className="border font-spartan p-3 flex items-center mb-2">
-                            <span className="uppercase text-gray text-sm pr-4">02</span>
+                        <button 
+                        className={`border font-spartan p-3 flex items-center mb-2 hover:hover-button ${activeButton === 'structure' ? `${activeColor}` : ''}`}
+                        onClick={() => handleButtonClick('structure')}>
+                            <span className="uppercase text-gray text-base pr-4 font-bold">02</span>
                             <span className="uppercase">internal structure</span> 
                         </button>
 
-                        <button className="border font-spartan p-3 flex items-center mb-2">
-                            <span className="uppercase text-gray text-sm pr-4">03</span>
+                        <button 
+                        
+                        className={`border font-spartan p-3 flex items-center mb-2 hover:hover-button ${activeButton === 'surface' ? `${activeColor}` : ''}`}
+                        onClick={() => handleButtonClick('surface')}>
+                            <span className="uppercase text-gray text-base pr-4 font-bold">03</span>
                             <span className="uppercase">surface geology</span> 
                         </button>
                     </aside>
