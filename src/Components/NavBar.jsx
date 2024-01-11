@@ -4,25 +4,9 @@ import HamburgerIconDeactivated from "../assets/icon-hamburger-deactivate.svg";
 import ArrowIcon from "../assets/icon-chevron.svg";
 import { Link } from "react-router-dom"
 import PlanetJson from "../../data.json"
-import { useParams } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
- 
-// Or bug with tailwind
-  let name = "bg-mercury"
-//   let { name } = useParams();
-
-//   console.log(name)
-
-//   if(typeof name === 'undefined'){
-//     name = 'mercury'
-//   }
-
-  console.log(name)
-
-
-  
   const navbarHeight = '4rem';
 
   return (
@@ -33,14 +17,16 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex items-center space-x-1 uppercase text-white opacity-80 text-base tracking-wide
         md:justify-center xl:justify-normal">
-        {/* The problem here it is generated dynamically */}
+       
                         {PlanetJson.map((planet) => (
                             <span key={planet.name}>
                                 <Link to={`/planet/${planet.name}`} 
                                 className={`block py-4 px-2 list-none xl:py-8 lg:py-4 desktop-link`}><a
-                                className={`before:${name}`}>{planet.name}</a></Link>
+                                >{planet.name}</a></Link>
                             </span>
                         ))}
+
+                       
         </div>
         <div className="md:hidden flex items-center">
           <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
